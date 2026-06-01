@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
+import { Analytics } from "@vercel/analytics/react";
 import {
   ArrowRight,
   CheckCircle2,
@@ -732,6 +733,8 @@ export default function ReinPortfolioWebsite() {
           conversion.
         </p>
       </footer>
+
+      <Analytics />
     </div>
   );
 }
