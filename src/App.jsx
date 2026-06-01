@@ -12,6 +12,7 @@ import {
   ExternalLink,
   PackageCheck,
   Sparkles,
+  Quote,
 } from "lucide-react";
 
 const Button = ({ children, className = "", variant = "solid" }) => {
@@ -65,22 +66,50 @@ const services = [
 
 const projects = [
   {
+    title: "R & S Interiors Website Audit",
+    category: "Website Audit + Conversion Strategy",
+    description:
+      "A practical website audit for an interiors business, focused on clearer messaging, stronger service positioning, and making it easier for visitors to understand the offer.",
+    challenge:
+      "R & S Interiors needed quick, practical feedback on how their online presence could communicate their services more clearly and feel more trustworthy to potential clients.",
+    approach:
+      "I reviewed their messaging from a customer’s point of view, pointed out where visitors could get confused, and suggested clearer sections, stronger calls-to-action, and more direct service explanations.",
+    outcome:
+      "The founder said the audit was quick, easy to work through, affordable, and that they looked forward to working together again.",
+  },
+  {
     title: "Coach Landing Page Concept",
     category: "Landing Page Copy",
     description:
       "A persuasive landing page structure for an online coach selling a 5-day focus program, built around clear benefits, social proof, and a simple call-to-action.",
+    challenge:
+      "The offer needed to feel simple, valuable, and easy to act on instead of sounding like another generic coaching program.",
+    approach:
+      "I structured the page around the target audience’s problem, the promise of the program, clear benefits, trust-building sections, and one focused call-to-action.",
+    outcome:
+      "This sample shows how I turn an idea into a clear landing page flow that can guide visitors toward booking or signing up.",
   },
   {
     title: "Startup Outreach Campaign",
     category: "Email + WhatsApp Copy",
     description:
       "A practical outreach sequence for Kenyan startups, designed to introduce landing page services without sounding generic or pushy.",
+    challenge:
+      "Many cold messages sound copied, vague, or too salesy, which makes companies ignore them quickly.",
+    approach:
+      "I created a simple message flow that starts with relevance, points to a possible website improvement, and gives the prospect an easy reason to reply.",
+    outcome:
+      "This sample shows how thoughtful outreach can feel more personal, direct, and easier for a business owner to respond to.",
   },
+];
+
+const testimonials = [
   {
-    title: "Business Website Refresh Plan",
-    category: "Website Strategy",
-    description:
-      "A conversion-focused website improvement plan showing how a business can improve trust, clarity, and lead generation from its homepage.",
+    quote:
+      "Rein was quick and easy to work with. His packages were affordable, and we look forward to working with him again.",
+    name: "Eva Martha",
+    role: "Founder, R & S Interiors",
+    logo: "/rs-interiors-logo.png",
   },
 ];
 
@@ -153,6 +182,7 @@ const process = [
 
 export default function ReinPortfolioWebsite() {
   const [openPackage, setOpenPackage] = useState(null);
+  const [openProject, setOpenProject] = useState(null);
 
   return (
     <div className="min-h-screen bg-slate-950 text-white">
@@ -166,14 +196,17 @@ export default function ReinPortfolioWebsite() {
             <a href="#services" className="hover:text-white">
               Services
             </a>
-            <a href="#work" className="hover:text-white">
-              Work
-            </a>
             <a href="#packages" className="hover:text-white">
               Packages
             </a>
             <a href="#proof" className="hover:text-white">
               Proof
+            </a>
+            <a href="#testimonials" className="hover:text-white">
+              Reviews
+            </a>
+            <a href="#work" className="hover:text-white">
+              Work
             </a>
             <a href="#process" className="hover:text-white">
               Process
@@ -192,7 +225,10 @@ export default function ReinPortfolioWebsite() {
       </header>
 
       <main>
-        <section id="home" className="relative overflow-hidden px-5 py-24 md:py-32">
+        <section
+          id="home"
+          className="relative overflow-hidden px-5 py-24 md:py-32"
+        >
           <div className="absolute left-1/2 top-0 h-80 w-80 -translate-x-1/2 rounded-full bg-cyan-500/20 blur-3xl" />
 
           <div className="mx-auto grid max-w-6xl items-center gap-12 md:grid-cols-[1.1fr_0.9fr]">
@@ -207,7 +243,8 @@ export default function ReinPortfolioWebsite() {
               </p>
 
               <h1 className="max-w-3xl text-4xl font-black leading-tight tracking-tight md:text-6xl">
-                I help businesses turn their websites into client-generating assets.
+                I help businesses turn their websites into client-generating
+                assets.
               </h1>
 
               <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-300">
@@ -228,7 +265,7 @@ export default function ReinPortfolioWebsite() {
                     variant="outline"
                     className="h-12 rounded-2xl border-white/20 bg-white/5 px-7 text-base text-white hover:bg-white/10"
                   >
-                    View sample work
+                    View case studies
                   </Button>
                 </a>
               </div>
@@ -244,7 +281,9 @@ export default function ReinPortfolioWebsite() {
                 <CardContent className="p-7">
                   <div className="mb-6 flex items-center justify-between">
                     <div>
-                      <p className="text-sm text-slate-300">Portfolio Snapshot</p>
+                      <p className="text-sm text-slate-300">
+                        Portfolio Snapshot
+                      </p>
                       <h2 className="text-2xl font-bold text-white">
                         What I focus on
                       </h2>
@@ -438,7 +477,55 @@ export default function ReinPortfolioWebsite() {
           </div>
         </section>
 
-        <section id="work" className="bg-white/[0.03] px-5 py-20">
+        <section id="testimonials" className="bg-white/[0.03] px-5 py-20">
+          <div className="mx-auto max-w-6xl">
+            <div className="mb-10 max-w-2xl">
+              <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-cyan-300">
+                Client Review
+              </p>
+              <h2 className="text-3xl font-black tracking-tight md:text-5xl">
+                Real feedback from work done
+              </h2>
+              <p className="mt-4 text-slate-300">
+                This is the kind of honest proof that builds trust without
+                pretending to have fake results or made-up numbers.
+              </p>
+            </div>
+
+            <div className="grid gap-5 md:grid-cols-1">
+              {testimonials.map((item) => (
+                <Card
+                  key={item.name}
+                  className="rounded-[2rem] border-cyan-400/20 bg-cyan-400/10"
+                >
+                  <CardContent className="p-8 md:p-10">
+                    <div className="mb-6 flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
+                      <Quote className="h-10 w-10 text-cyan-300" />
+                      <div className="rounded-2xl bg-white p-4">
+                        <img
+                          src={item.logo}
+                          alt="R & S Interiors logo"
+                          className="h-16 w-auto object-contain"
+                        />
+                      </div>
+                    </div>
+
+                    <p className="max-w-4xl text-2xl font-bold leading-snug text-white md:text-3xl">
+                      “{item.quote}”
+                    </p>
+
+                    <div className="mt-6">
+                      <p className="font-bold text-white">{item.name}</p>
+                      <p className="text-slate-300">{item.role}</p>
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section id="work" className="px-5 py-20">
           <div className="mx-auto max-w-6xl">
             <div className="mb-10 flex flex-col justify-between gap-5 md:flex-row md:items-end">
               <div>
@@ -446,18 +533,17 @@ export default function ReinPortfolioWebsite() {
                   Selected Work
                 </p>
                 <h2 className="text-3xl font-black tracking-tight md:text-5xl">
-                  Sample projects
+                  Readable case studies
                 </h2>
               </div>
               <p className="max-w-xl text-slate-300">
-                These are honest portfolio-style examples that show my thinking,
-                copy structure, and strategy. They can later be replaced with
-                real client projects, screenshots, and live links.
+                Click a case study to read the challenge, approach, and outcome
+                behind the work.
               </p>
             </div>
 
             <div className="grid gap-5 md:grid-cols-3">
-              {projects.map((project) => (
+              {projects.map((project, index) => (
                 <Card
                   key={project.title}
                   className="rounded-3xl border-white/10 bg-slate-950/70"
@@ -472,9 +558,53 @@ export default function ReinPortfolioWebsite() {
                     <p className="mt-3 leading-7 text-slate-300">
                       {project.description}
                     </p>
-                    <button className="mt-5 inline-flex items-center text-sm font-semibold text-cyan-300 hover:text-cyan-200">
-                      View case study <ExternalLink className="ml-2 h-4 w-4" />
+                    <button
+                      onClick={() =>
+                        setOpenProject(openProject === index ? null : index)
+                      }
+                      className="mt-5 inline-flex items-center text-sm font-semibold text-cyan-300 hover:text-cyan-200"
+                    >
+                      {openProject === index
+                        ? "Hide case study"
+                        : "Read case study"}{" "}
+                      <ExternalLink className="ml-2 h-4 w-4" />
                     </button>
+
+                    {openProject === index && (
+                      <motion.div
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.25 }}
+                        className="mt-6 space-y-5 rounded-2xl border border-cyan-400/20 bg-cyan-400/10 p-5"
+                      >
+                        <div>
+                          <p className="text-sm font-bold uppercase tracking-[0.18em] text-cyan-300">
+                            Challenge
+                          </p>
+                          <p className="mt-2 leading-7 text-slate-300">
+                            {project.challenge}
+                          </p>
+                        </div>
+
+                        <div>
+                          <p className="text-sm font-bold uppercase tracking-[0.18em] text-cyan-300">
+                            Approach
+                          </p>
+                          <p className="mt-2 leading-7 text-slate-300">
+                            {project.approach}
+                          </p>
+                        </div>
+
+                        <div>
+                          <p className="text-sm font-bold uppercase tracking-[0.18em] text-cyan-300">
+                            Outcome
+                          </p>
+                          <p className="mt-2 leading-7 text-slate-300">
+                            {project.outcome}
+                          </p>
+                        </div>
+                      </motion.div>
+                    )}
                   </CardContent>
                 </Card>
               ))}
